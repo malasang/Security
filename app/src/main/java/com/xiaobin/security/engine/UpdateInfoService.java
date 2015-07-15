@@ -31,7 +31,6 @@ public class UpdateInfoService {
         }catch (Exception e){
             e.printStackTrace();
         }
-//        InputStream is = httpURLConnection.getInputStream();
         return UpdateInfoParse.getUpdateInfo(is);
     }
 }

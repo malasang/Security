@@ -96,11 +96,12 @@ public class SplashActivity extends Activity
             @Override
             public void onClick(DialogInterface dialogInterface, int which){
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
-                    File dir = new File(Environment.getExternalStorageDirectory(),"security/update");
+                    File dir = new File(Environment.getExternalStorageDirectory(),"/security/update");
                     if(!dir.exists()){
                         dir.mkdirs();
                     }
-                    String apkPath = Environment.getExternalStorageDirectory()+"security/update/new.apk";
+                    String apkPath = Environment.getExternalStorageDirectory()+"/security/update/new.apk";
+                    Log.i("Security","apk path:"+apkPath);
                     UpdateTask task = new UpdateTask(updateInfo.getUrl(),apkPath);
                     progressDialog.show();
                     new Thread(task).start();
@@ -206,7 +207,7 @@ public class SplashActivity extends Activity
             }catch (Exception e){
                 e.printStackTrace();
                 progressDialog.dismiss();
-//                Toast.makeText(SplashActivity.this,"update failed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SplashActivity.this,"update failed",Toast.LENGTH_SHORT).show();
                 loadMainUI();
             }
         }
