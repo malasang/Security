@@ -176,6 +176,7 @@ public class SplashActivity extends Activity
 		}
 	}
 
+    // TODO
     private void loadMainUI(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
